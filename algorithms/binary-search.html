@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary Search</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../sorting.html">Sorting</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <h1>Binary Search</h1>
+
+    <p>
+        Binary Search is a fast searching algorithm that works
+        on sorted arrays by repeatedly dividing the search range in half.
+    </p>
+
+    
+    <div class="info-box">
+
+        <h2>How It Works</h2>
+
+        <p>
+            Binary Search compares the target value with the middle element.
+            If they are equal, the search stops. Otherwise, it continues
+            in the left or right half.
+        </p>
+
+        <h2>Step-by-Step Process</h2>
+
+        <ul>
+            <li>Start with sorted array</li>
+            <li>Find middle element</li>
+            <li>Compare with target</li>
+            <li>If smaller, search left half</li>
+            <li>If larger, search right half</li>
+            <li>Repeat until found</li>
+        </ul>
+
+        <h2>Time Complexity</h2>
+
+        <ul>
+            <li>Best Case: O(1)</li>
+            <li>Average Case: O(log n)</li>
+            <li>Worst Case: O(log n)</li>
+        </ul>
+
+        <h2>Space Complexity</h2>
+
+        <p>O(1) (Iterative) / O(log n) (Recursive)</p>
+
+        <h2>Advantages</h2>
