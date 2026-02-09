@@ -3,6 +3,97 @@
 <head>
     <title>DSA Visualizer</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .hero-section {
+            padding: 40px 0;
+            line-height: 1.6;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .card a {
+            display: inline-block;
+            background: #2196f3;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .card a:hover {
+            background: #1976d2;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .footer-form {
+            max-width: 450px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+        .footer-form input, 
+        .footer-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .footer-form input:focus, 
+        .footer-form textarea:focus {
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+        .footer-form button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .footer-form button:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,64 +106,46 @@
 </nav>
 
 <div class="container">
+    <div class="hero-section">
+        <h1>DSA Algorithm Visualizer</h1>
+        <p>
+            Welcome to the DSA Algorithm Visualizer — a platform designed
+            to help students understand data structures and algorithms through
+            clear, step-by-step logic and visual aids.
+        </p>
+        <p>
+            Instead of memorizing code, you can see how algorithms actually manipulate data
+            in real time. This approach makes complex concepts intuitive and faster to learn.
+        </p>
+    </div>
 
-    <h1>DSA Algorithm Visualizer</h1>
-
-    <p>
-        Welcome to the DSA Algorithm Visualizer — a platform designed
-        to help students understand sorting algorithms through
-        interactive visual animations.
-    </p>
-
-    <br>
-
-    <p>
-        Instead of memorizing steps, you can see how algorithms work
-        in real time. This makes learning faster, clearer, and more fun.
-    </p>
-
-    <br>
-
-    <h2>What You Can Do Here</h2>
-
-    <ul>
-        <li>Explore popular sorting algorithms</li>
-        <li>Watch step-by-step visualizations</li>
-        <li>Compare algorithm performance</li>
-        <li>Request new algorithms</li>
-    </ul>
-
-    <br>
+    <h2>Get Started</h2>
 
     <div class="card-grid">
-
         <div class="card">
             <h2>Sorting Algorithms</h2>
+            <p>Visualize Bubble, Merge, and Quick sort.</p>
             <a href="sorting.html">Start Learning →</a>
         </div>
 
+        <div class="card">
+            <h2>Searching Algorithms</h2>
+            <p>Master Linear and Binary search techniques.</p>
+            <a href="searching.html">Start Learning →</a>
+        </div>
     </div>
-
 </div>
 
 <footer>
-
     <h3>Have an Algorithm in Mind?</h3>
-
     <p>Tell us what algorithm you want to see next!</p>
 
-    <form>
-
-        <input type="text" placeholder="Your Name">
-
-        <input type="text" placeholder="Algorithm Name">
-
-        <textarea rows="3" placeholder="Short message..."></textarea>
-
-        <button type="submit">Send</button>
-
+    <form class="footer-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="text" placeholder="Algorithm Name" required>
+        <textarea rows="3" placeholder="Why should we add this?"></textarea>
+        <button type="submit">Send Suggestion</button>
     </form>
-
 </footer>
 
 </body>

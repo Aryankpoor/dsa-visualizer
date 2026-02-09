@@ -35,6 +35,7 @@
             justify-content: center;
             font-weight: bold;
             border-radius: 4px;
+            transition: all 0.3s ease;
         }
         .pivot {
             background: #f44336 !important;
@@ -43,45 +44,36 @@
         .sorted {
             background: #2196f3;
         }
+
         footer {
             background: #2c3e50;
             color: white;
-            padding: 50px 20px;
+            padding: 40px 20px;
             text-align: center;
             margin-top: 50px;
         }
         .footer-form {
-            max-width: 450px;
-            margin: 30px auto 0;
+            max-width: 500px;
+            margin: 20px auto 0;
             display: flex;
             flex-direction: column;
             gap: 15px;
+            text-align: left;
         }
-        .footer-form input, 
-        .footer-form textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #dee2e6;
-            border-radius: 6px;
+        .footer-form input, .footer-form textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
             font-family: inherit;
-            font-size: 15px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .footer-form input:focus, 
-        .footer-form textarea:focus {
-            border-color: #4caf50;
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+            font-size: 14px;
         }
         .footer-form button {
             background: #4caf50;
             color: white;
             border: none;
-            padding: 15px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 16px;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
             cursor: pointer;
             transition: background 0.3s;
         }
@@ -103,16 +95,15 @@
     <h1>Quick Sort</h1>
 
     <p>
-        Quick Sort is a highly efficient, Divide and Conquer algorithm. 
-        It picks an element as a 'pivot' and partitions the array around it, 
-        ensuring smaller elements move to the left and larger ones to the right.
+        Quick Sort is a highly efficient, <strong>Divide and Conquer</strong> algorithm. 
+        It picks an element as a 'pivot' and partitions the given array around the picked pivot.
     </p>
 
     <div class="visual-section">
-        <h2>Example Partition</h2>
+        <h2>Partitioning Example</h2>
 
         <div class="step">
-            <div class="step-title">Initial Array (Pivot: 5)</div>
+            <div class="step-title">1. Initial Array (Pivot: 5)</div>
             <div class="array">
                 <div class="box">2</div>
                 <div class="box">8</div>
@@ -123,18 +114,18 @@
         </div>
 
         <div class="step">
-            <div class="step-title">Partitioned (Left < 5, Right > 5)</div>
+            <div class="step-title">2. Partitioning (Elements < 5 to the left)</div>
             <div class="array">
                 <div class="box">2</div>
                 <div class="box">1</div>
                 <div class="box">4</div>
-                <div class="box sorted">5</div>
+                <div class="box pivot">5</div>
                 <div class="box">8</div>
             </div>
         </div>
 
         <div class="step">
-            <div class="step-title">Final Sorted Array</div>
+            <div class="step-title">3. Sorted Result</div>
             <div class="array">
                 <div class="box sorted">1</div>
                 <div class="box sorted">2</div>
@@ -148,24 +139,31 @@
     <div class="info-box">
         <h2>How It Works</h2>
         <p>
-            Quick Sort works by selecting a pivot, partitioning the array so that 
-            elements smaller than the pivot are on the left, and then 
-            recursively sorting the sub-arrays.
+            Quick Sort works by selecting a 'pivot' element and arranging the other elements into two sub-arrays:
+            those less than the pivot and those greater than the pivot.
         </p>
+
+        <h2>Step-by-Step Process</h2>
+        <ul>
+            <li><strong>Pick:</strong> Select a pivot element.</li>
+            <li><strong>Partition:</strong> Reorder the array based on the pivot.</li>
+            <li><strong>Recurse:</strong> Apply the steps to the remaining sub-arrays.</li>
+        </ul>
 
         <h2>Complexity Analysis</h2>
         <ul>
-            <li>Best Case: $O(n \log n)$</li>
-            <li>Average Case: $O(n \log n)$</li>
-            <li>Worst Case: $O(n^2)$</li>
-            <li>Space Complexity: $O(\log n)$</li>
+            <li><strong>Best Case:</strong> $O(n \log n)$</li>
+            <li><strong>Average Case:</strong> $O(n \log n)$</li>
+            <li><strong>Worst Case:</strong> $O(n^2)$</li>
         </ul>
 
-        <h2>Advantages</h2>
+        <h2>Space Complexity</h2>
+        <p>$O(\log n)$</p>
+
+        <h2>Key Advantages</h2>
         <ul>
-            <li>Very fast for large datasets</li>
-            <li>Low memory overhead (in-place)</li>
-            <li>Cache-friendly performance</li>
+            <li>Fast in practice and cache efficient.</li>
+            <li>Sorts in-place.</li>
         </ul>
     </div>
 </div>
@@ -177,8 +175,8 @@
     <form class="footer-form">
         <input type="text" placeholder="Your Name" required>
         <input type="text" placeholder="Algorithm Name" required>
-        <textarea rows="3" placeholder="Additional details..."></textarea>
-        <button type="submit">Send Suggestion</button>
+        <textarea rows="3" placeholder="Short message..."></textarea>
+        <button type="submit">Send</button>
     </form>
 </footer>
 

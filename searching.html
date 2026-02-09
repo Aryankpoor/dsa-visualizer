@@ -3,8 +3,95 @@
 <head>
     <title>Searching Algorithms</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card a {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2196f3;
+            text-decoration: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .footer-form {
+            max-width: 450px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footer-form input, 
+        .footer-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .footer-form input:focus, 
+        .footer-form textarea:focus {
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
+        }
+        .footer-form button {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .footer-form button:hover {
+            background: #1976d2;
+        }
+    </style>
 </head>
 <body> 
+
 <nav>
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -18,51 +105,74 @@
     <h1>Searching Algorithms</h1>
 
     <p>
-        Searching algorithms are used to find a specific element
-        in a collection of data efficiently.
+        Searching algorithms are fundamental tools in computer science designed to retrieve information stored within some data structure. 
+        The efficiency of these algorithms is typically measured by their time complexity as the size of the dataset grows.
     </p>
 
-    <p>
-        They help reduce time and effort when working with large datasets.
-    </p>
-
-    <br>
-
-    <h2>Available Searching Algorithms</h2>
+    <h2>Available Algorithms</h2>
 
     <div class="card-grid">
-
         <div class="card">
             <a href="algorithms/linear-search.html">Linear Search</a>
-            <p>Simple and works on unsorted data</p>
+            <p>Sequentially checks every element until a match is found.</p>
         </div>
-
         <div class="card">
             <a href="algorithms/binary-search.html">Binary Search</a>
-            <p>Fast search on sorted arrays</p>
+            <p>Efficiently narrows down the search range by half each step.</p>
         </div>
-
     </div>
+
+    <h2>Key Differences</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Linear Search</th>
+                <th>Binary Search</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Data Requirement</strong></td>
+                <td>Works on both sorted and unsorted data.</td>
+                <td>Requires the data to be sorted.</td>
+            </tr>
+            <tr>
+                <td><strong>Time Complexity</strong></td>
+                <td>$O(n)$</td>
+                <td>$O(\log n)$</td>
+            </tr>
+            <tr>
+                <td><strong>Space Complexity</strong></td>
+                <td>$O(1)$</td>
+                <td>$O(1)$ (iterative)</td>
+            </tr>
+            <tr>
+                <td><strong>Approach</strong></td>
+                <td>Sequential / Iterative</td>
+                <td>Divide and Conquer</td>
+            </tr>
+            <tr>
+                <td><strong>Best For</strong></td>
+                <td>Small or unsorted datasets.</td>
+                <td>Large, sorted datasets.</td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
 
 <footer>
-
     <h3>Have an Algorithm in Mind?</h3>
     <p>Tell us what algorithm you want to see next!</p>
 
-    <form>
-
-        <input type="text" placeholder="Your Name">
-
-        <input type="text" placeholder="Algorithm Name">
-
-        <textarea rows="3" placeholder="Short message..."></textarea>
-
-        <button type="submit">Send</button>
-
+    <form class="footer-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="text" placeholder="Algorithm Name" required>
+        <textarea rows="3" placeholder="Tell us more..."></textarea>
+        <button type="submit">Send Suggestion</button>
     </form>
-
 </footer>
 
 </body>
