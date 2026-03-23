@@ -1,0 +1,17 @@
+.visualizer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 300px;
+  margin-top: 30px;
+}
+
+.bar {
+  width: 10px;
+  margin: 2px;
+  background: #38bdf8;
+}
+
+.bar.active {
+  background: #ef4444;
+}
