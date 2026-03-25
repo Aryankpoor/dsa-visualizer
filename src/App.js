@@ -1,18 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
 import Sorting from "./pages/Sorting";
-import Searching from "./pages/Searching";
-import Navbar from "./components/Navbar";
-import "./styles/global.css";
+import BubbleSort from "./pages/algorithms/BubbleSort";
+import MergeSort from "./pages/algorithms/MergeSort";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sorting" element={<Sorting />} />
-        <Route path="/searching" element={<Searching />} />
+
+        {/* Algorithm routes */}
+        <Route path="/sorting/bubble" element={<BubbleSort />} />
+        <Route path="/sorting/merge" element={<MergeSort />} />
       </Routes>
     </BrowserRouter>
   );
