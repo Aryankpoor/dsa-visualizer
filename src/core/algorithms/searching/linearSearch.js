@@ -1,13 +1,14 @@
-export function linearSearch(arr, target) {
+export function linearSearchSteps(arr, target) {
   let steps = [];
 
   for (let i = 0; i < arr.length; i++) {
-    steps.push({ type: "check", index: i });
+    steps.push({
+      array: [...arr],
+      current: i,
+      found: arr[i] === target,
+    });
 
-    if (arr[i] === target) {
-      steps.push({ type: "found", index: i });
-      break;
-    }
+    if (arr[i] === target) break;
   }
 
   return steps;
