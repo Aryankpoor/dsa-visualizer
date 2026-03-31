@@ -10,7 +10,10 @@ import LinearSearch from "./pages/searching/LinearSearch";
 import BinarySearch from "./pages/searching/BinarySearch";
 
 import LCS from "./pages/dp/lcs";
+import Knapsack from "./pages/dp/Knapsack";
 
+import BFS from "./pages/graph/BFS";
+import DFS from "./pages/graph/DFS";
 function App() {
   return (
     <Router>
@@ -29,6 +32,10 @@ function App() {
           <Route path="/searching/binary" element={<BinarySearch />} />
 
           <Route path="/dp/lcs" element={<LCS />} />
+          <Route path="/dp/knapsack" element={<Knapsack />} />
+
+          <Route path="/graph/bfs" element={<BFS />} />
+          <Route path="/graph/dfs" element={<DFS />} />
         </Routes>
       </Layout>
     </Router>

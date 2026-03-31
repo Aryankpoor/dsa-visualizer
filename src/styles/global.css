@@ -1,23 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 @import "./variables.css";
 
+/* ===== GLOBAL RESET ===== */
 body {
   margin: 0;
-  font-family: "Consolas", monospace;
+  font-family: 'Roboto', sans-serif;
   background: var(--bg-main);
   color: var(--text-primary);
 }
 
-/* Layout */
-.container {
+/* ===== LAYOUT ===== */
+.app {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
   padding: 20px;
 }
 
-/* Headings */
-h1, h2 {
-  color: var(--accent-yellow);
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 240px;
+  background: var(--bg-panel);
+  height: 100vh;
+  padding: 20px;
+  border-right: 1px solid var(--border);
 }
 
-/* Cards */
+.sidebar h2 {
+  color: var(--accent-purple);
+}
+
+.sidebar a {
+  display: block;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.sidebar a:hover {
+  color: var(--accent-green);
+}
+
+/* ===== CARDS ===== */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -26,7 +52,7 @@ h1, h2 {
   margin-bottom: 20px;
 }
 
-/* Buttons */
+/* ===== BUTTONS ===== */
 button {
   background: var(--bg-panel);
   border: 1px solid var(--border);
@@ -41,7 +67,7 @@ button:hover {
   color: var(--accent-green);
 }
 
-/* Table */
+/* ===== TABLE ===== */
 table {
   border-collapse: collapse;
   margin-top: 15px;
@@ -54,7 +80,7 @@ td {
   text-align: center;
 }
 
-/* Highlight */
+
 .active {
   background: var(--accent-orange);
   color: black;
@@ -64,4 +90,19 @@ td.active {
   background: var(--accent-purple);
   color: black;
   font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--border);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }

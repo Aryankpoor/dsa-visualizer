@@ -9,7 +9,10 @@ export default function Navbar() {
       <Link to="/sorting/insertion">Insertion</Link> |{" "}
       <Link to="/searching/linear">Linear</Link> |{" "}
       <Link to="/searching/binary">Binary</Link> |{" "}
-      <Link to="/dp/lcs">LCS</Link>
+      <Link to="/dp/lcs">LCS</Link> |{" "}
+      <Link to="/dp/knapsack">Knapsack</Link> |{" "}
+      <Link to="/graph/bfs">BFS</Link> |{" "}
+      <Link to="/graph/dfs">DFS</Link>
     </nav>
   );
 }
