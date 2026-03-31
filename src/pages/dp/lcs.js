@@ -4,18 +4,18 @@ import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import DPTable from "../../components/common/DPTable";
 import Footer from "../../components/layout/Footer";
-import { knapsackSteps } from "../../core/algorithms/dp/knapsack";
+import { lcsSteps } from "../../core/algorithms/dp/lcs";
 
-export default function Knapsack() {
-  const [weights] = useState([1, 3, 4, 5]);
-  const [values] = useState([1, 4, 5, 7]);
-  const [capacity] = useState(7);
+export default function LCS() {
+  const [str1] = useState("ABCBDAB");
+  const [str2] = useState("BDCAB");
 
   const [steps, setSteps] = useState([]);
   const [index, setIndex] = useState(0);
 
   const start = () => {
-    setSteps(knapsackSteps(weights, values, capacity));
+    const s = lcsSteps(str1, str2);
+    setSteps(s);
     setIndex(0);
   };
 
@@ -23,42 +23,33 @@ export default function Knapsack() {
     <div className="container">
       <Section title="Introduction">
         <Card>
-          0/1 Knapsack determines the maximum value achievable within a weight limit.
+          Longest Common Subsequence finds the longest sequence present in both strings.
         </Card>
       </Section>
 
       <Section title="Purpose">
         <Card>
-          Used in resource allocation, budgeting, and optimization problems.
+          Used in DNA matching, text comparison, and diff tools.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>O(n × W)</Card>
+        <Card>O(m × n)</Card>
       </Section>
 
       <Section title="Example">
-        <p>Weights: {weights.join(", ")}</p>
-        <p>Values: {values.join(", ")}</p>
-        <p>Capacity: {capacity}</p>
+        <p>String 1: {str1}</p>
+        <p>String 2: {str2}</p>
 
         <Button text="Start" onClick={start} />
         <Button text="Next Step" onClick={() => setIndex(index + 1)} />
 
         {steps.length > 0 && index < steps.length && (
           <>
-            <DPTable table={steps[index].table} current={{ i: steps[index].i, j: steps[index].w }} />
+            <DPTable table={steps[index].table} current={steps[index]} />
 
             <p>
-              Item: {steps[index].item} | Capacity: {steps[index].w}
-            </p>
-
-            <p>
-              Include: {steps[index].include} | Exclude: {steps[index].exclude}
-            </p>
-
-            <p>
-              Chosen Value: <strong>{steps[index].chosen}</strong>
+              Comparing: {steps[index].char1} vs {steps[index].char2}
             </p>
 
             <p>Step {index + 1}</p>

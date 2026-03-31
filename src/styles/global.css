@@ -59,3 +59,9 @@ td {
   background: var(--accent-orange);
   color: black;
 }
+
+td.active {
+  background: var(--accent-purple);
+  color: black;
+  font-weight: bold;
+}
