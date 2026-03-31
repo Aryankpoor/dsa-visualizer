@@ -1,22 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
-import Sorting from "./pages/Sorting";
-import BubbleSort from "./pages/algorithms/BubbleSort";
-import MergeSort from "./pages/algorithms/MergeSort";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import BubbleSort from "./pages/sorting/BubbleSort";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sorting" element={<Sorting />} />
-
-        {/* Algorithm routes */}
-        <Route path="/sorting/bubble" element={<BubbleSort />} />
-        <Route path="/sorting/merge" element={<MergeSort />} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<h1>Welcome</h1>} />
+          <Route path="/sorting" element={<BubbleSort />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
