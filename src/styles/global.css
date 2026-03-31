@@ -219,3 +219,16 @@ strong {
   line-height: 1.6;
   white-space: pre-line;
 }
+
+.sidebar {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
