@@ -16,16 +16,42 @@ export default function BinarySearch() {
   };
 
   return (
-    <div className="container">
+    <div>
+      <h1>Binary Search</h1>
+
       <Section title="Introduction">
-        <Card>Binary Search works on sorted arrays.</Card>
+        <Card>
+          Binary Search is an efficient searching algorithm that works on
+          sorted arrays. It repeatedly divides the search space into half
+          until the target element is found.
+        </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>O(log n)</Card>
+        <Card>
+          Best: O(1)<br />
+          Average: O(log n)<br />
+          Worst: O(log n)
+        </Card>
       </Section>
 
-      <Section title="Example">
+      <Section title="Space Complexity">
+        <Card>O(1)</Card>
+      </Section>
+
+      <Section title="Pseudocode">
+        <Card>
+          sort array <br />
+          set left = 0, right = n-1 <br />
+          while left ≤ right:<br />
+          &nbsp;&nbsp;mid = (left + right) / 2 <br />
+          &nbsp;&nbsp;if arr[mid] == target → found <br />
+          &nbsp;&nbsp;if arr[mid] &lt; target → left = mid + 1 <br />
+          &nbsp;&nbsp;else → right = mid - 1
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <p>Target: {target}</p>
 
         <Button text="Start" onClick={start} />
@@ -36,18 +62,20 @@ export default function BinarySearch() {
             <table>
               <tbody>
                 <tr>
-                  {steps[index].array.map((val, i) => {
-                    let cls = "";
-                    if (i === steps[index].mid) cls = "active";
-                    return <td key={i} className={cls}>{val}</td>;
-                  })}
+                  {steps[index].array.map((val, i) => (
+                    <td
+                      key={i}
+                      className={i === steps[index].mid ? "active" : ""}
+                    >
+                      {val}
+                    </td>
+                  ))}
                 </tr>
               </tbody>
             </table>
 
             <p>
               Left: {steps[index].left}, Mid: {steps[index].mid}, Right: {steps[index].right}
-              {steps[index].found && " → Found!"}
             </p>
           </>
         )}

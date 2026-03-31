@@ -13,30 +13,46 @@ export default function LCS() {
   const [index, setIndex] = useState(0);
 
   const start = () => {
-    const s = lcsSteps(str1, str2);
-    setSteps(s);
+    setSteps(lcsSteps(str1, str2));
     setIndex(0);
   };
 
   return (
-    <div className="container">
+    <div>
+      <h1>Longest Common Subsequence (LCS)</h1>
+
       <Section title="Introduction">
         <Card>
-          Longest Common Subsequence finds the longest sequence present in both strings.
-        </Card>
-      </Section>
-
-      <Section title="Purpose">
-        <Card>
-          Used in DNA matching, text comparison, and diff tools.
+          The Longest Common Subsequence problem finds the longest sequence
+          that appears in both strings in the same order, but not necessarily
+          contiguously.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
+        <Card>
+          Best: O(m × n)<br />
+          Average: O(m × n)<br />
+          Worst: O(m × n)
+        </Card>
+      </Section>
+
+      <Section title="Space Complexity">
         <Card>O(m × n)</Card>
       </Section>
 
-      <Section title="Example">
+      <Section title="Pseudocode">
+        <Card>
+          for i from 1 to m:<br />
+          &nbsp;&nbsp;for j from 1 to n:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;if str1[i-1] == str2[j-1]:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = 1 + dp[i-1][j-1]<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;else:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <p>String 1: {str1}</p>
         <p>String 2: {str2}</p>
 
@@ -46,12 +62,7 @@ export default function LCS() {
         {steps.length > 0 && index < steps.length && (
           <>
             <DPTable table={steps[index].table} current={steps[index]} />
-
-            <p>
-              Comparing: {steps[index].char1} vs {steps[index].char2}
-            </p>
-
-            <p>Step {index + 1}</p>
+            <p>Comparing: {steps[index].char1} vs {steps[index].char2}</p>
           </>
         )}
       </Section>

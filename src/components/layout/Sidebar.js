@@ -1,29 +1,84 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Sidebar() {
+  const [search, setSearch] = useState("");
+
+  const data = [
+    {
+      title: "General",
+      links: [{ name: "Home", path: "/" }],
+    },
+    {
+      title: "Sorting",
+      links: [
+        { name: "Bubble Sort", path: "/sorting/bubble" },
+        { name: "Selection Sort", path: "/sorting/selection" },
+        { name: "Insertion Sort", path: "/sorting/insertion" },
+      ],
+    },
+    {
+      title: "Searching",
+      links: [
+        { name: "Linear Search", path: "/searching/linear" },
+        { name: "Binary Search", path: "/searching/binary" },
+      ],
+    },
+    {
+      title: "Dynamic Programming",
+      links: [
+        { name: "LCS", path: "/dp/lcs" },
+        { name: "Knapsack", path: "/dp/knapsack" },
+      ],
+    },
+    {
+      title: "Graph",
+      links: [
+        { name: "BFS", path: "/graph/bfs" },
+        { name: "DFS", path: "/graph/dfs" },
+      ],
+    },
+  ];
+
   return (
     <div className="sidebar">
       <h2>DSA Visualizer</h2>
 
-      <h3>General</h3>
-      <Link to="/">Home</Link>
+      {/* 🔍 SEARCH BAR */}
+      <input
+        className="search-box"
+        type="text"
+        placeholder="Search algorithm..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-      <h3>Sorting</h3>
-      <Link to="/sorting/bubble">Bubble</Link>
-      <Link to="/sorting/selection">Selection</Link>
-      <Link to="/sorting/insertion">Insertion</Link>
+      {/* 📂 GROUPED LINKS */}
+      {data.map((section, i) => {
+        const filteredLinks = section.links.filter((link) =>
+          link.name.toLowerCase().includes(search.toLowerCase())
+        );
 
-      <h3>Searching</h3>
-      <Link to="/searching/linear">Linear</Link>
-      <Link to="/searching/binary">Binary</Link>
+        if (filteredLinks.length === 0) return null;
 
-      <h3>Dynamic Programming</h3>
-      <Link to="/dp/lcs">LCS</Link>
-      <Link to="/dp/knapsack">Knapsack</Link>
+        return (
+          <div key={i}>
+            <h3>{section.title}</h3>
 
-      <h3>Graph</h3>
-      <Link to="/graph/bfs">BFS</Link>
-      <Link to="/graph/dfs">DFS</Link>
+            {filteredLinks.map((link, index) => (
+              <NavLink
+                key={index}
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive ? "active-link" : ""
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }

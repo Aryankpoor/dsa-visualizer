@@ -19,24 +19,41 @@ export default function Knapsack() {
   };
 
   return (
-    <div className="container">
+    <div>
+      <h1>0/1 Knapsack</h1>
+
       <Section title="Introduction">
         <Card>
-          0/1 Knapsack determines the maximum value achievable within a weight limit.
-        </Card>
-      </Section>
-
-      <Section title="Purpose">
-        <Card>
-          Used in resource allocation, budgeting, and optimization problems.
+          The 0/1 Knapsack problem determines the maximum value that can be
+          obtained within a given weight capacity by either including or
+          excluding items.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
+        <Card>
+          Best: O(n × W)<br />
+          Average: O(n × W)<br />
+          Worst: O(n × W)
+        </Card>
+      </Section>
+
+      <Section title="Space Complexity">
         <Card>O(n × W)</Card>
       </Section>
 
-      <Section title="Example">
+      <Section title="Pseudocode">
+        <Card>
+          for i from 1 to n:<br />
+          &nbsp;&nbsp;for w from 0 to capacity:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;if weight[i] ≤ w:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][w] = max(include, exclude)<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;else:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][w] = exclude
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <p>Weights: {weights.join(", ")}</p>
         <p>Values: {values.join(", ")}</p>
         <p>Capacity: {capacity}</p>
@@ -47,24 +64,10 @@ export default function Knapsack() {
         {steps.length > 0 && index < steps.length && (
           <>
             <DPTable table={steps[index].table} current={{ i: steps[index].i, j: steps[index].w }} />
-
-            <p>
-              Item: {steps[index].item} | Capacity: {steps[index].w}
-            </p>
-
-            <p>
-              Include: {steps[index].include} | Exclude: {steps[index].exclude}
-            </p>
-
-            <p>
-              Chosen Value: <strong>{steps[index].chosen}</strong>
-            </p>
-
-            <p>Step {index + 1}</p>
+            <p>Chosen Value: {steps[index].chosen}</p>
           </>
         )}
       </Section>
-
     </div>
   );
 }

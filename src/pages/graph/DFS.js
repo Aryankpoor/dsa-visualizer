@@ -2,7 +2,6 @@ import { useState } from "react";
 import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
-import GraphMatrix from "../../components/common/GraphMatrix";
 import { dfsSteps } from "../../core/algorithms/graph/dfs";
 
 export default function DFS() {
@@ -22,37 +21,42 @@ export default function DFS() {
   };
 
   return (
-    <div className="container">
+    <div>
+      <h1>Depth First Search (DFS)</h1>
+
       <Section title="Introduction">
-        <Card>DFS explores as deep as possible before backtracking.</Card>
+        <Card>
+          DFS explores as far as possible along a branch before backtracking.
+        </Card>
       </Section>
 
       <Section title="Time Complexity">
         <Card>O(V + E)</Card>
       </Section>
 
-      <Section title="Graph (Adjacency Matrix)">
-        <GraphMatrix graph={graph} />
+      <Section title="Space Complexity">
+        <Card>O(V)</Card>
       </Section>
 
-      <Section title="Example Traversal">
+      <Section title="Pseudocode">
+        <Card>
+          DFS(node):<br />
+          &nbsp;&nbsp;mark visited<br />
+          &nbsp;&nbsp;for each neighbor:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;if not visited → DFS(neighbor)
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <Button text="Start" onClick={start} />
         <Button text="Next Step" onClick={() => setIndex(index + 1)} />
 
         {steps.length > 0 && index < steps.length && (
           <>
             <p>Current Node: {steps[index].current}</p>
-            <p>
-              Visited:{" "}
-              {steps[index].visited
-                .map((v, i) => (v ? i : null))
-                .filter(v => v !== null)
-                .join(", ")}
-            </p>
           </>
         )}
       </Section>
-
     </div>
   );
 }

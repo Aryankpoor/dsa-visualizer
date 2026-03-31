@@ -17,19 +17,36 @@ export default function SelectionSort() {
 
   return (
     <div>
-      <Section title="Introduction">
-        <Card>Selection Sort repeatedly selects the minimum element.</Card>
-      </Section>
+      <h1>Selection Sort</h1>
 
-      <Section title="Purpose">
-        <Card>Simple but inefficient sorting algorithm.</Card>
+      <Section title="Introduction">
+        <Card>
+          Selection Sort repeatedly finds the minimum element from the
+          unsorted portion and places it at the beginning.
+        </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>O(n²) in all cases</Card>
+        <Card>
+          Best: O(n²)<br />
+          Average: O(n²)<br />
+          Worst: O(n²)
+        </Card>
       </Section>
 
-      <Section title="Example">
+      <Section title="Space Complexity">
+        <Card>O(1)</Card>
+      </Section>
+
+      <Section title="Pseudocode">
+        <Card>
+          for i from 0 to n:<br />
+          &nbsp;&nbsp;find minimum from i to n <br />
+          &nbsp;&nbsp;swap with i
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <Button text="Start" onClick={start} />
         <Button text="Next Step" onClick={() => setIndex(index + 1)} />
 

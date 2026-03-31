@@ -23,7 +23,7 @@ body {
 /* ===== SIDEBAR ===== */
 .sidebar {
   width: 260px;
-  background: var(--bg-panel);
+  background: #eae3cb; /* slightly darker than main */
   height: 100vh;
   padding: 25px;
   border-right: 1px solid var(--border);
@@ -41,15 +41,36 @@ body {
   margin-top: 20px;
 }
 
+/* LINKS */
 .sidebar a {
   display: block;
   color: var(--text-primary);
   text-decoration: none;
-  padding: 6px 0;
+  padding: 6px 10px;
+  border-radius: 6px;
 }
 
+/* HOVER */
 .sidebar a:hover {
-  color: var(--accent-blue);
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* ACTIVE LINK */
+.active-link {
+  background: var(--accent-purple);
+  color: white !important;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 16px;
+  background: white;
 }
 
 /* ===== HEADINGS ===== */
@@ -115,4 +136,16 @@ td.active {
   background: var(--accent-purple);
   color: white;
   font-weight: bold;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
 }

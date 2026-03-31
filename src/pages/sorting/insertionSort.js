@@ -17,22 +17,41 @@ export default function InsertionSort() {
 
   return (
     <div>
-      <Section title="Introduction">
-        <Card>Insertion Sort builds sorted array step-by-step.</Card>
-      </Section>
+      <h1>Insertion Sort</h1>
 
-      <Section title="Purpose">
-        <Card>Efficient for small or nearly sorted data.</Card>
+      <Section title="Introduction">
+        <Card>
+          Insertion Sort builds the sorted array one element at a time by
+          inserting each element into its correct position in the already
+          sorted portion of the array.
+        </Card>
       </Section>
 
       <Section title="Time Complexity">
         <Card>
-          Best: O(n) <br />
+          Best: O(n) (Nearly sorted)<br />
+          Average: O(n²)<br />
           Worst: O(n²)
         </Card>
       </Section>
 
-      <Section title="Example">
+      <Section title="Space Complexity">
+        <Card>O(1)</Card>
+      </Section>
+
+      <Section title="Pseudocode">
+        <Card>
+          for i from 1 to n:<br />
+          &nbsp;&nbsp;key = arr[i]<br />
+          &nbsp;&nbsp;j = i - 1<br />
+          &nbsp;&nbsp;while j ≥ 0 and arr[j] &gt; key:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;arr[j+1] = arr[j]<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;j--<br />
+          &nbsp;&nbsp;arr[j+1] = key
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <Button text="Start" onClick={start} />
         <Button text="Next Step" onClick={() => setIndex(index + 1)} />
 
@@ -43,7 +62,6 @@ export default function InsertionSort() {
           </>
         )}
       </Section>
-
     </div>
   );
 }
