@@ -1,6 +1,6 @@
 # 🚀 DSA Visualizer
 
-An interactive **Data Structures & Algorithms Visualizer** built to help understand how algorithms work step-by-step through clean animations and intuitive UI.
+An interactive **Data Structures & Algorithms Visualizer** built to help understand how algorithms work step-by-step through clean visualization and intuitive UI.
 
 ---
 
