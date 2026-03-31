@@ -2,7 +2,6 @@ import { useState } from "react";
 import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
-import Footer from "../../components/layout/Footer";
 import { linearSearchSteps } from "../../core/algorithms/searching/linearSearch";
 
 export default function LinearSearch() {
@@ -17,16 +16,37 @@ export default function LinearSearch() {
   };
 
   return (
-    <div className="container">
+    <div>
+      <h1>Linear Search</h1>
+
       <Section title="Introduction">
-        <Card>Linear Search checks each element sequentially.</Card>
+        <Card>
+          Linear Search scans each element one by one until the target value
+          is found or the array ends.
+        </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>O(n)</Card>
+        <Card>
+          Best Case: O(1)<br />
+          Average Case: O(n)<br />
+          Worst Case: O(n)
+        </Card>
       </Section>
 
-      <Section title="Example">
+      <Section title="Space Complexity">
+        <Card>O(1)</Card>
+      </Section>
+
+      <Section title="Pseudocode">
+        <Card>
+          for i from 0 to n:<br />
+          &nbsp;&nbsp;if arr[i] == target:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;return i
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
         <p>Target: {target}</p>
 
         <Button text="Start" onClick={start} />
@@ -48,16 +68,10 @@ export default function LinearSearch() {
                 </tr>
               </tbody>
             </table>
-
-            <p>
-              Checking index {steps[index].current}
-              {steps[index].found && " → Found!"}
-            </p>
+            <p>Checking index {steps[index].current}</p>
           </>
         )}
       </Section>
-
-      <Footer />
     </div>
   );
 }

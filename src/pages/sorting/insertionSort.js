@@ -3,7 +3,6 @@ import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import ArrayTable from "../../components/common/ArrayTable";
-import Footer from "../../components/layout/Footer";
 import { insertionSortSteps } from "../../core/algorithms/sorting/insertionSort";
 
 export default function InsertionSort() {
@@ -45,7 +44,6 @@ export default function InsertionSort() {
         )}
       </Section>
 
-      <Footer />
     </div>
   );
 }

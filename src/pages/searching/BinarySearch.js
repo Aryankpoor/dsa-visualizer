@@ -2,7 +2,6 @@ import { useState } from "react";
 import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
-import Footer from "../../components/layout/Footer";
 import { binarySearchSteps } from "../../core/algorithms/searching/BinarySearch";
 
 export default function BinarySearch() {
@@ -53,8 +52,6 @@ export default function BinarySearch() {
           </>
         )}
       </Section>
-
-      <Footer />
     </div>
   );
 }

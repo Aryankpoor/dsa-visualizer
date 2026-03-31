@@ -1,10 +1,10 @@
-import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 export default function Layout({ children }) {
   return (
-    <div>
-      <Navbar />
-      <div style={{ padding: "20px" }}>{children}</div>
+    <div className="app">
+      <Sidebar />
+      <div className="main-content">{children}</div>
     </div>
   );
 }

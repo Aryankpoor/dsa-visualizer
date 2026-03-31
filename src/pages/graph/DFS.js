@@ -2,7 +2,6 @@ import { useState } from "react";
 import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
-import Footer from "../../components/layout/Footer";
 import GraphMatrix from "../../components/common/GraphMatrix";
 import { dfsSteps } from "../../core/algorithms/graph/dfs";
 
@@ -54,7 +53,6 @@ export default function DFS() {
         )}
       </Section>
 
-      <Footer />
     </div>
   );
 }

@@ -3,7 +3,6 @@ import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import ArrayTable from "../../components/common/ArrayTable";
-import Footer from "../../components/layout/Footer";
 import { bubbleSortSteps } from "../../core/algorithms/sorting/bubbleSort";
 
 export default function BubbleSort() {
@@ -12,46 +11,54 @@ export default function BubbleSort() {
   const [index, setIndex] = useState(0);
 
   const start = () => {
-    const s = bubbleSortSteps(array);
-    setSteps(s);
+    setSteps(bubbleSortSteps(array));
     setIndex(0);
-  };
-
-  const next = () => {
-    if (index < steps.length - 1) setIndex(index + 1);
   };
 
   return (
     <div>
-      <Section title="Introduction">
-        <Card>Bubble Sort is a simple comparison-based algorithm.</Card>
-      </Section>
+      <h1>Bubble Sort</h1>
 
-      <Section title="Purpose">
-        <Card>Used for teaching and small datasets.</Card>
+      <Section title="Introduction">
+        <Card>
+          Bubble Sort is a simple comparison-based sorting algorithm where
+          adjacent elements are compared and swapped if they are in the wrong
+          order. This process is repeated until the array becomes sorted.
+        </Card>
       </Section>
 
       <Section title="Time Complexity">
         <Card>
-          Best: O(n) <br />
-          Average: O(n²) <br />
-          Worst: O(n²)
+          Best Case: O(n) (Already sorted)<br />
+          Average Case: O(n²)<br />
+          Worst Case: O(n²)
         </Card>
       </Section>
 
-      <Section title="Example">
-        <Button text="Start" onClick={start} />
-        <Button text="Next Step" onClick={next} />
-
-        {steps.length > 0 && (
-          <div style={{ marginTop: "20px" }}>
-            <ArrayTable array={steps[index]} />
-            <p>Step {index + 1}</p>
-          </div>
-        )}
+      <Section title="Space Complexity">
+        <Card>O(1)</Card>
       </Section>
 
-      <Footer />
+      <Section title="Pseudocode">
+        <Card>
+          for i from 0 to n:<br />
+          &nbsp;&nbsp;for j from 0 to n-i-1:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;if arr[j] &gt; arr[j+1]:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1])
+        </Card>
+      </Section>
+
+      <Section title="Start Example">
+        <Button text="Start" onClick={start} />
+        <Button text="Next Step" onClick={() => setIndex(index + 1)} />
+
+        {steps.length > 0 && index < steps.length && (
+          <>
+            <ArrayTable array={steps[index]} />
+            <p>Step {index + 1}</p>
+          </>
+        )}
+      </Section>
     </div>
   );
 }

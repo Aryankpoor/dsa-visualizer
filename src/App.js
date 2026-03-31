@@ -14,13 +14,15 @@ import Knapsack from "./pages/dp/Knapsack";
 
 import BFS from "./pages/graph/BFS";
 import DFS from "./pages/graph/DFS";
+
+import Home from "./pages/Home";
 function App() {
   return (
     <Router>
       <Layout>
         <Routes>
           {/* Home */}
-          <Route path="/" element={<h1>Welcome to DSA Visualizer</h1>} />
+          <Route path="/" element={<Home />} />
 
           {/* Sorting */}
           <Route path="/sorting/bubble" element={<BubbleSort />} />
@@ -36,6 +38,8 @@ function App() {
 
           <Route path="/graph/bfs" element={<BFS />} />
           <Route path="/graph/dfs" element={<DFS />} />
+
+          
         </Routes>
       </Layout>
     </Router>

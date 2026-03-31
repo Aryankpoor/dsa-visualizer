@@ -3,7 +3,6 @@ import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import DPTable from "../../components/common/DPTable";
-import Footer from "../../components/layout/Footer";
 import { lcsSteps } from "../../core/algorithms/dp/lcs";
 
 export default function LCS() {
@@ -56,8 +55,6 @@ export default function LCS() {
           </>
         )}
       </Section>
-
-      <Footer />
     </div>
   );
 }

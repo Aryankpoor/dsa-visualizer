@@ -3,7 +3,6 @@ import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import DPTable from "../../components/common/DPTable";
-import Footer from "../../components/layout/Footer";
 import { knapsackSteps } from "../../core/algorithms/dp/knapsack";
 
 export default function Knapsack() {
@@ -66,7 +65,6 @@ export default function Knapsack() {
         )}
       </Section>
 
-      <Footer />
     </div>
   );
 }

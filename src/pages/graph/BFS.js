@@ -2,7 +2,6 @@ import { useState } from "react";
 import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
-import Footer from "../../components/layout/Footer";
 import GraphMatrix from "../../components/common/GraphMatrix";
 import { bfsSteps } from "../../core/algorithms/graph/bfs";
 
@@ -55,7 +54,6 @@ export default function BFS() {
         )}
       </Section>
 
-      <Footer />
     </div>
   );
 }

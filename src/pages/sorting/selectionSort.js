@@ -3,7 +3,6 @@ import Section from "../../components/common/Section";
 import Card from "../../components/common/Card";
 import Button from "../../components/common/Button";
 import ArrayTable from "../../components/common/ArrayTable";
-import Footer from "../../components/layout/Footer";
 import { selectionSortSteps } from "../../core/algorithms/sorting/selectionSort";
 
 export default function SelectionSort() {
@@ -41,8 +40,6 @@ export default function SelectionSort() {
           </>
         )}
       </Section>
-
-      <Footer />
     </div>
   );
 }
