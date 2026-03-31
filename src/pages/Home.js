@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
       
-      <h1 style={{ marginBottom: "10px" }}>DSA Visualizer</h1>
+      <h1 style={{ marginBottom: "10px" }}>DSA Hero</h1>
 
       <p style={{ fontSize: "20px", color: "var(--text-secondary)" }}>
         Learn Data Structures and Algorithms through structured,
