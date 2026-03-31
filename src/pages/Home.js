@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
       
-      {/* HERO SECTION */}
       <h1 style={{ marginBottom: "10px" }}>DSA Visualizer</h1>
 
       <p style={{ fontSize: "20px", color: "var(--text-secondary)" }}>
@@ -12,10 +11,8 @@ export default function Home() {
         step-by-step visual explanations.
       </p>
 
-      {/* SEPARATOR */}
       <hr style={{ margin: "30px 0", borderColor: "var(--border)" }} />
 
-      {/* OVERVIEW */}
       <h2>Overview</h2>
       <Card>
         This platform focuses on clarity rather than flashy animations.
@@ -23,7 +20,6 @@ export default function Home() {
         understand exactly how values change over time.
       </Card>
 
-      {/* FEATURES GRID */}
       <h2>What Makes This Different</h2>
       <div style={{
         display: "grid",
@@ -48,7 +44,6 @@ export default function Home() {
         </Card>
       </div>
 
-      {/* TOPICS */}
       <h2 style={{ marginTop: "40px" }}>Topics Covered</h2>
       <Card>
         <ul style={{ textAlign: "left" }}>
@@ -63,9 +58,18 @@ export default function Home() {
       <h2>How to Use</h2>
       <Card>
         Select an algorithm from the sidebar. Read the explanation,
-        then use the "Start Example" button and step through the
-        execution to understand how the algorithm works internally.
+        then use the "Start Example" button and see how the example Array updates at every step to understand how the algorithm works internally.
       </Card>
+
+      <p
+        style={{
+          marginTop: "60px",
+          fontSize: "16px",
+          color: "var(--text-secondary)",
+        }}
+      >
+        Made with <span style={{ color: "var(--accent-red)" }}>♥</span> by Aryan and Tanishq
+      </p>
 
     </div>
   );

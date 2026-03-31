@@ -15,6 +15,8 @@ export default function Sidebar() {
         { name: "Bubble Sort", path: "/sorting/bubble" },
         { name: "Selection Sort", path: "/sorting/selection" },
         { name: "Insertion Sort", path: "/sorting/insertion" },
+        { name: "Merge Sort", path: "/sorting/merge" },
+        { name: "Quick Sort", path: "/sorting/quick" },
       ],
     },
     {
@@ -44,7 +46,6 @@ export default function Sidebar() {
     <div className="sidebar">
       <h2>DSA Visualizer</h2>
 
-      {/* 🔍 SEARCH BAR */}
       <input
         className="search-box"
         type="text"
@@ -53,7 +54,6 @@ export default function Sidebar() {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      {/* 📂 GROUPED LINKS */}
       {data.map((section, i) => {
         const filteredLinks = section.links.filter((link) =>
           link.name.toLowerCase().includes(search.toLowerCase())
