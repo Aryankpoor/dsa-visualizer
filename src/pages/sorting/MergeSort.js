@@ -22,30 +22,38 @@ export default function MergeSort() {
       <Section title="Introduction">
         <Card>
           Merge Sort is a divide-and-conquer algorithm that splits the array
-          into halves, sorts them recursively, and then merges them back together.
+          into halves, sorts them recursively until each subarray contains only one element, and then merges them back together.
+          <br />
+          <br />
+          It guarantees a time complexity of <strong>O(n log n)</strong> in all cases, making it very
+efficient for large datasets. However, it requires additional memory for merging,
+which makes it less space-efficient compared to some other sorting algorithms.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best: O(n log n)<br />
-          Average: O(n log n)<br />
-          Worst: O(n log n)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(n log n) <br />
+    <strong>Average Case:</strong> O(n log n) <br />
+    <strong>Worst Case:</strong> O(n log n)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(n)</Card>
-      </Section>
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(n)
+  </Card>
+</Section>
 
-      <Section title="Pseudocode">
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           divide array into halves<br />
           recursively sort both halves<br />
           merge sorted halves
         </Card>
       </Section>
-
+</div>
       <Section title="Start Example">
         <Button text="Start" onClick={start} />
         <Button text="Next Step" onClick={() => setIndex(index + 1)} />

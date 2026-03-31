@@ -21,31 +21,42 @@ export default function QuickSort() {
 
       <Section title="Introduction">
         <Card>
-          Quick Sort selects a pivot element and partitions the array into
+          Quick Sort is a highly efficient divide-and-conquer sorting algorithm that works
+          by selecting a pivot element and partitioning the array into two parts:
+          elements smaller than the pivot and elements greater than the pivot.
+          It selects a pivot element and partitions the array into
           elements smaller and larger than the pivot, then recursively sorts them.
+          <br />
+          <br />
+          It then recursively sorts the partitions. Quick Sort is widely used in practice
+          due to its excellent average-case performance, although its worst-case time
+          complexity can degrade to <strong>O(n²)</strong> if the pivot is poorly chosen.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best: O(n log n)<br />
-          Average: O(n log n)<br />
-          Worst: O(n²)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(n log n) <br />
+    <strong>Average Case:</strong> O(n log n) <br />
+    <strong>Worst Case:</strong> O(n²) (Poor pivot selection)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(log n)</Card>
-      </Section>
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(log n)
+  </Card>
+</Section>
 
-      <Section title="Pseudocode">
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           choose pivot<br />
           partition array<br />
           recursively sort left and right
         </Card>
       </Section>
-
+</div>
       <Section title="Start Example">
         <Button text="Start" onClick={start} />
         <Button text="Next Step" onClick={() => setIndex(index + 1)} />

@@ -23,23 +23,31 @@ export default function BinarySearch() {
         <Card>
           Binary Search is an efficient searching algorithm that works on
           sorted arrays. It repeatedly divides the search space into half
-          until the target element is found.
+          comparing the target
+          value with the middle element to decide which half to continue searching in until the target element is found.
+          <br />
+          <br />
+          This significantly reduces the number of comparisons, resulting in a logarithmic
+          time complexity. However, it requires the data to be sorted beforehand, which is
+          a key limitation.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best: O(1)<br />
-          Average: O(log n)<br />
-          Worst: O(log n)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(1) <br />
+    <strong>Average Case:</strong> O(log n) <br />
+    <strong>Worst Case:</strong> O(log n)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(1)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(1)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           sort array <br />
           set left = 0, right = n-1 <br />
@@ -50,6 +58,8 @@ export default function BinarySearch() {
           &nbsp;&nbsp;else → right = mid - 1
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <p>Target: {target}</p>

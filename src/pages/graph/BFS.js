@@ -26,20 +26,31 @@ export default function BFS() {
 
       <Section title="Introduction">
         <Card>
-          BFS explores a graph level by level using a queue, visiting all
-          neighbors before moving deeper.
+          Breadth First Search (BFS) is a graph traversal algorithm that explores nodes
+level by level. Starting from a source node, it visits all its immediate neighbors
+before moving on to nodes at the next level. It explores a graph level by level using a queue, visiting all
+          neighbors before moving deeper. 
+          <br />
+          <br />
+          Breadth First Search (BFS) is a graph traversal algorithm that explores nodes
+level by level. Starting from a source node, it visits all its immediate neighbors
+before moving on to nodes at the next level.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>O(V + E)</Card>
-      </Section>
+  <Card>
+    <strong>Time Complexity:</strong> O(V + E)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(V)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(V)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           enqueue start<br />
           while queue not empty:<br />
@@ -48,6 +59,8 @@ export default function BFS() {
           &nbsp;&nbsp;enqueue neighbors
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <Button text="Start" onClick={start} />

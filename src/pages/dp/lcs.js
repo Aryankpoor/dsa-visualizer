@@ -26,22 +26,29 @@ export default function LCS() {
           The Longest Common Subsequence problem finds the longest sequence
           that appears in both strings in the same order, but not necessarily
           contiguously.
+          <br />
+          <br />
+          It is a classic dynamic programming problem where a table is used to store
+          intermediate results, avoiding repeated calculations. LCS is widely used in
+          applications like DNA sequence analysis, text comparison, and version control systems.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best: O(m × n)<br />
-          Average: O(m × n)<br />
-          Worst: O(m × n)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(m × n) <br />
+    <strong>Average Case:</strong> O(m × n) <br />
+    <strong>Worst Case:</strong> O(m × n)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(m × n)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(m × n)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           for i from 1 to m:<br />
           &nbsp;&nbsp;for j from 1 to n:<br />
@@ -51,6 +58,8 @@ export default function LCS() {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][j] = max(dp[i-1][j], dp[i][j-1])
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <p>String 1: {str1}</p>

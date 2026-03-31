@@ -22,29 +22,40 @@ export default function LinearSearch() {
       <Section title="Introduction">
         <Card>
           Linear Search scans each element one by one until the target value
-          is found or the array ends.
+          is found or the array ends. It's the simplest searching algorithm where each element in the array
+          is checked sequentially until the target value is found or the end of the array
+          is reached.
+          <br />
+          <br />
+          It does not require the array to be sorted, making it flexible but inefficient
+          for large datasets. Its performance depends directly on the size of the input,
+          making it slower compared to more advanced searching techniques.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best Case: O(1)<br />
-          Average Case: O(n)<br />
-          Worst Case: O(n)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(1) <br />
+    <strong>Average Case:</strong> O(n) <br />
+    <strong>Worst Case:</strong> O(n)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(1)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(1)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           for i from 0 to n:<br />
           &nbsp;&nbsp;if arr[i] == target:<br />
           &nbsp;&nbsp;&nbsp;&nbsp;return i
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <p>Target: {target}</p>

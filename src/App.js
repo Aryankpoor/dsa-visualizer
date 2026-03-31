@@ -46,7 +46,8 @@ function App() {
           <Route path="/sorting/merge" element={<MergeSort />} />
         <Route path="/sorting/quick" element={<QuickSort />} />
 
-          
+          <Route path="/graph/BFS" element={<BFS />} />
+          <Route path="/graph/DFS" element={<DFS />} />
         </Routes>
       </Layout>
     </Router>

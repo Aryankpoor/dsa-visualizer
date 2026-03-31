@@ -26,19 +26,28 @@ export default function DFS() {
 
       <Section title="Introduction">
         <Card>
-          DFS explores as far as possible along a branch before backtracking.
+          Depth First Search (DFS) is a graph traversal algorithm that explores as far as
+possible along a branch before backtracking. It dives deep into the graph before
+visiting neighboring nodes.
+
+          DFS can be implemented using recursion or a stack. It is useful in applications
+such as cycle detection, topological sorting, and solving puzzles like mazes.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>O(V + E)</Card>
-      </Section>
+  <Card>
+    <strong>Time Complexity:</strong> O(V + E)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(V)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(V)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           DFS(node):<br />
           &nbsp;&nbsp;mark visited<br />
@@ -46,6 +55,8 @@ export default function DFS() {
           &nbsp;&nbsp;&nbsp;&nbsp;if not visited → DFS(neighbor)
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <Button text="Start" onClick={start} />

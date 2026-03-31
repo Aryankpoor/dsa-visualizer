@@ -23,23 +23,32 @@ export default function BubbleSort() {
         <Card>
           Bubble Sort is a simple comparison-based sorting algorithm where
           adjacent elements are compared and swapped if they are in the wrong
-          order. This process is repeated until the array becomes sorted.
+          order.After each pass, the largest unsorted element "bubbles up" to its
+correct position at the end of the array. This process is repeated until the array becomes sorted.
+          <br></br>
+          <br></br>
+          Although it is easy to understand and implement, Bubble Sort is not efficient
+for large datasets due to its quadratic time complexity. However, it is useful
+for educational purposes and for understanding the basic concept of sorting
+through comparisons and swaps.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best Case: O(n) (Already sorted)<br />
-          Average Case: O(n²)<br />
-          Worst Case: O(n²)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(n) (Already sorted) <br />
+    <strong>Average Case:</strong> O(n²) <br />
+    <strong>Worst Case:</strong> O(n²)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(1)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(1)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           for i from 0 to n:<br />
           &nbsp;&nbsp;for j from 0 to n-i-1:<br />
@@ -47,6 +56,8 @@ export default function BubbleSort() {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(arr[j], arr[j+1])
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <Button text="Start" onClick={start} />

@@ -26,23 +26,26 @@ export default function Knapsack() {
         <Card>
           The 0/1 Knapsack problem determines the maximum value that can be
           obtained within a given weight capacity by either including or
-          excluding items.
+          excluding items. Each item can either be included or excluded <strong>(hence 0/1)</strong>.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best: O(n × W)<br />
-          Average: O(n × W)<br />
-          Worst: O(n × W)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(n × W) <br />
+    <strong>Average Case:</strong> O(n × W) <br />
+    <strong>Worst Case:</strong> O(n × W)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(n × W)</Card>
-      </Section>
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(n × W)
+  </Card>
+</Section>
 
-      <Section title="Pseudocode">
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           for i from 1 to n:<br />
           &nbsp;&nbsp;for w from 0 to capacity:<br />
@@ -52,6 +55,9 @@ export default function Knapsack() {
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dp[i][w] = exclude
         </Card>
       </Section>
+</div>
+
+      
 
       <Section title="Start Example">
         <p>Weights: {weights.join(", ")}</p>

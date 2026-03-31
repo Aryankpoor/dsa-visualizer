@@ -23,23 +23,30 @@ export default function InsertionSort() {
         <Card>
           Insertion Sort builds the sorted array one element at a time by
           inserting each element into its correct position in the already
-          sorted portion of the array.
+          sorted portion of the array. It is similar to how we sort playing cards in our hand.
+          <br></br>
+          <br></br>
+          This algorithm is efficient for small datasets or nearly sorted arrays, where it
+can perform very quickly. However, for large unsorted data, its performance
+degrades due to its quadratic time complexity.
         </Card>
       </Section>
 
       <Section title="Time Complexity">
-        <Card>
-          Best: O(n) (Nearly sorted)<br />
-          Average: O(n²)<br />
-          Worst: O(n²)
-        </Card>
-      </Section>
+  <Card>
+    <strong>Best Case:</strong> O(n) (Nearly sorted) <br />
+    <strong>Average Case:</strong> O(n²) <br />
+    <strong>Worst Case:</strong> O(n²)
+  </Card>
+</Section>
 
-      <Section title="Space Complexity">
-        <Card>O(1)</Card>
-      </Section>
-
-      <Section title="Pseudocode">
+<Section title="Space Complexity">
+  <Card>
+    <strong>Space Complexity:</strong> O(1)
+  </Card>
+</Section>
+<div className="pseudocode">
+  <Section title="Pseudocode">
         <Card>
           for i from 1 to n:<br />
           &nbsp;&nbsp;key = arr[i]<br />
@@ -50,6 +57,8 @@ export default function InsertionSort() {
           &nbsp;&nbsp;arr[j+1] = key
         </Card>
       </Section>
+</div>
+      
 
       <Section title="Start Example">
         <Button text="Start" onClick={start} />

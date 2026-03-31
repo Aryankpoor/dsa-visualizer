@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lato:wght@400;600&display=swap');
 @import "./variables.css";
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap');
 
 body {
   margin: 0;
@@ -202,3 +203,19 @@ td.active {
     transform: translateX(0);
   }
 } 
+
+strong {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.pseudocode {
+  font-family: 'Source Code Pro', monospace;
+  background: #f4efe1;
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: pre-line;
+}
