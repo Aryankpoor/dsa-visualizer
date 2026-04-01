@@ -1,109 +1,12 @@
-# 🚀 DSA Visualizer
+# DSA HERO
+A place to easily learn about different algorithms and see live examples of them being implemented !
 
-An interactive **Data Structures & Algorithms Visualizer** built to help understand how algorithms work step-by-step through clean visualization and intuitive UI.
+## How to Start?
+Click on any algorithm you want to learn: We have a collection of sorting, searching , Dynamic programming and graph algorithms to choose from.
 
----
+Each one has explaination and pseudocode to walk you through the process. 
 
-## 🌟 Features
+At the bottom of every page: There is a "Start" button. Click on it to view an example and see how it gets affected step by step when the algorithm is applied to it!
 
-* 📊 Visualize popular **sorting algorithms**
-* 🎮 Step-by-step **array representation**
-* 🎯 Clean and responsive UI
-
----
-
-## 🧠 Algorithms Implemented
-
-### 🔷 Sorting Algorithms
-
-* Bubble Sort
-* Selection Sort
-* Insertion Sort
-* Merge Sort
-* Quick Sort
-
-### 🔷 Searching Algorithms
-
-* Binary Search
-* Linear Search
-
-### 🔷 DP Algorithms
-
-* Knapsack
-* Longest Common Subsequence
-
-### 🔷 Graph Algorithms
-
-* DFS (Depth First Search)
-* BFS (Breadth First Search)
-
----
-
-## 🏗️ Tech Stack
-
-* ⚛️ React (Frontend)
-* 🎨 Tailwind CSS + Custom Global CSS
-* 🧠 JavaScript (Algorithm Logic)
-
----
-
-## 📁 Project Structure
-
-```
-src/
-│
-├── components/
-│   ├── Navbar.jsx
-│   ├── Sidebar.jsx
-│   └── ArrayBar.jsx
-│
-├── pages/
-│   ├── SortingVisualizer.jsx
-│   └── ...
-│
-├── algorithms/
-│   ├── bubbleSort.js
-│   ├── mergeSortAlgorithm.js
-│   ├── quickSortAlgorithm.js
-│   └── ...
-│
-├── styles/
-│   └── global.css
-│
-└── App.jsx
-```
-
----
-
-## 🎮 How to Use
-
-1. Select an algorithm from the sidebar
-2. Generate a new array (or use existing)
-3. Click **Start**
-4. Watch the algorithm execute step-by-step
-
----
-
-## 💡 Key Design Decisions
-
-* 🔹 **Global CSS for buttons & layout** → consistency across pages
-* 🔹 **Animation-based architecture** → algorithms emit steps instead of direct sorting
-* 🔹 **Modular structure** → easy to add new algorithms
-
----
-
-## 🚀 Future Improvements
-
-
-* 🌙 Dark mode
-* 🌐 More algorithms:
-
-  * Heap Sort
-  * Dijkstra’s Algorithm
-* 📱 Mobile optimization improvements
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
+## Bonus
+There is also a quiz for you to try , if you think you have learnt everything!

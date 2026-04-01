@@ -40,6 +40,12 @@ export default function Sidebar() {
         { name: "DFS", path: "/graph/dfs" },
       ],
     },
+    {
+  title: "Practice",
+  links: [
+    { name: "Quiz", path: "/quiz" }
+  ]
+},
   ];
 
   return (

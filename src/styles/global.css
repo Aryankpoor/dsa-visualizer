@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lato:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lato:wght@400;600&family=Source+Code+Pro:wght@400;500&display=swap');
 @import "./variables.css";
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap');
 
 body {
   margin: 0;
@@ -8,6 +7,11 @@ body {
   font-size: 18px;
   background: var(--bg-main);
   color: var(--text-primary);
+  overscroll-behavior: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 .app {
@@ -19,20 +23,38 @@ body {
   padding: 30px;
 }
 
-.sidebar {
-  width: 260px;
-  background: #eae3cb; 
+.sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
-  padding: 60px 25px 25px 25px; 
-  border-right: 1px solid var(--border);
+  width: 260px;
+
+  background: #eae3cb;
+  z-index: 1600;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-wrapper.open {
+  transform: translateX(0);
+}
+
+.sidebar {
+  height: 100%;
+  overflow-y: auto;
+  padding: 60px 25px 25px 25px;
   font-family: 'Lato', sans-serif;
   font-size: 17px;
-  overflow-y: auto;
+
+  overscroll-behavior: contain;
 }
 
 .sidebar h2 {
   color: var(--accent-blue);
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .sidebar h3 {
@@ -59,6 +81,7 @@ body {
   color: white !important;
 }
 
+/* ===== SEARCH BAR ===== */
 .search-box {
   width: 100%;
   padding: 8px;
@@ -67,6 +90,35 @@ body {
   border-radius: 6px;
   font-size: 16px;
   background: white;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 2000;
+
+  font-size: 20px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1500;
 }
 
 h1 {
@@ -99,6 +151,7 @@ button {
   border-radius: 6px;
   cursor: pointer;
   margin-right: 10px;
+  transition: all 0.2s ease;
 }
 
 button:hover {
@@ -118,7 +171,6 @@ td {
   text-align: center;
 }
 
-/* ===== HIGHLIGHTS ===== */
 .active {
   background: var(--accent-yellow);
   color: black;
@@ -130,105 +182,36 @@ td.active {
   font-weight: bold;
 }
 
-.sidebar-wrapper {
-  width: 260px;
-  transition: width 0.3s ease;
+.pseudocode {
+  font-family: 'Source Code Pro', monospace;
+  background: #f4efe1;
+  border-left: 4px solid var(--accent-blue);
+  padding: 12px;
+  border-radius: 8px;
+  line-height: 1.6;
+  white-space: pre-line;
 }
-
-/* FULLY HIDE SIDEBAR */
-.sidebar-wrapper:not(.open) {
-  width: 0;
-  overflow: hidden;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1400; 
-}
-
-.toggle-btn {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 2000;
-
-  font-size: 20px;
-  background: var(--bg-panel);
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.toggle-btn:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
-}
-
-
-.sidebar {
-  position: relative;
-  z-index: 1600;
-}
-
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 220px;
-    padding: 60px 15px 15px 15px;
-  }
-
-  .main-content {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar-wrapper {
-    position: fixed;
-    z-index: 1600;
-    height: 100vh;
-    width: 260px;
-    background: #eae3cb;
-
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-  }
-
-  .sidebar-wrapper.open {
-    transform: translateX(0);
-  }
-} 
 
 strong {
   color: var(--accent-blue);
   font-weight: 600;
 }
 
-.pseudocode {
-  font-family: 'Source Code Pro', monospace;
-  background: #f4efe1;
-  border: 1px solid var(--border);
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: 500;
-  line-height: 1.6;
-  white-space: pre-line;
-}
+@media (max-width: 768px) {
+  .main-content {
+    padding: 15px;
+  }
 
-.sidebar {
-  overflow-y: auto;
-  height: 100vh;
-}
+  table td {
+    padding: 8px;
+    min-width: 30px;
+  }
 
-body {
-  overscroll-behavior: none;
-}
+  h1 {
+    font-size: 26px;
+  }
 
-html {
-  -webkit-text-size-adjust: 100%;
+  h2 {
+    font-size: 20px;
+  }
 }

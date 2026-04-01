@@ -1,13 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Sidebar from "./Sidebar";
 
 export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
-  // 🔥 LOCK BODY SCROLL
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
+
+      // 🔥 FORCE RESET AFTER RENDER
+      setTimeout(() => {
+        if (sidebarRef.current) {
+          sidebarRef.current.scrollTop = 0;
+        }
+      }, 0);
     } else {
       document.body.style.overflow = "auto";
     }
@@ -15,7 +22,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="app">
-      {/* TOGGLE BUTTON */}
+      {/* TOGGLE */}
       <button
         onClick={() => setOpen(!open)}
         className="toggle-btn"
@@ -25,15 +32,14 @@ export default function Layout({ children }) {
 
       {/* OVERLAY */}
       {open && (
-        <div
-          className="overlay"
-          onClick={() => setOpen(false)}
-        ></div>
+        <div className="overlay" onClick={() => setOpen(false)}></div>
       )}
 
       {/* SIDEBAR */}
-      <div className={open ? "sidebar-wrapper open" : "sidebar-wrapper"}>
-        <Sidebar />
+      <div className={`sidebar-wrapper ${open ? "open" : ""}`}>
+        <div ref={sidebarRef} className="sidebar">
+          <Sidebar />
+        </div>
       </div>
 
       {/* MAIN */}
