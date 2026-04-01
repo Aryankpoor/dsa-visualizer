@@ -29,17 +29,16 @@ function App() {
       <Router>
       <Layout>
         <Routes>
-          {/* Home */}
+         
           <Route path="/" element={<Home />} />
 
-          {/* Sorting */}
           <Route path="/sorting/bubble" element={<BubbleSort />} />
           <Route path="/sorting/selection" element={<SelectionSort />} />
           <Route path="/sorting/insertion" element={<InsertionSort />} />
           <Route path="/sorting/merge" element={<MergeSort />} />
           <Route path="/sorting/quick" element={<QuickSort />} />
 
-          {/* Searching */}
+          
           <Route path="/searching/linear" element={<LinearSearch />} />
           <Route path="/searching/binary" element={<BinarySearch />} />
 

@@ -54,7 +54,6 @@ export default function Home() {
         </ul>
       </Card>
 
-      {/* HOW TO USE */}
       <h2>How to Use</h2>
       <Card>
         Select an algorithm from the sidebar. Read the explanation,
