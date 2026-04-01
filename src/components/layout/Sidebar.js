@@ -1,8 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 export default function Sidebar() {
   const [search, setSearch] = useState("");
+  const location = useLocation();
+
+  const [openSections, setOpenSections] = useState({
+    General: false,
+    Sorting: false,
+    Searching: false,
+    "Dynamic Programming": false,
+    Graph: false,
+    Practice: false,
+  });
+
+  const toggleSection = (title) => {
+    setOpenSections({
+      ...openSections,
+      [title]: !openSections[title],
+    });
+  };
 
   const data = [
     {
@@ -41,21 +58,19 @@ export default function Sidebar() {
       ],
     },
     {
-  title: "Practice",
-  links: [
-    { name: "Quiz", path: "/quiz" }
-  ]
-},
+      title: "Practice",
+      links: [{ name: "Quiz", path: "/quiz" }],
+    },
   ];
 
   return (
     <div className="sidebar">
-      <h2>DSA Visualizer</h2>
+      
 
       <input
         className="search-box"
         type="text"
-        placeholder="Search algorithm..."
+        placeholder="Search..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -69,19 +84,28 @@ export default function Sidebar() {
 
         return (
           <div key={i}>
-            <h3>{section.title}</h3>
+            <h3
+              onClick={() => toggleSection(section.title)}
+              className="section-title"
+            >
+              <span className={`arrow ${openSections[section.title] ? "open" : ""}`}>
+                ▶
+              </span>
+              {section.title}
+            </h3>
 
-            {filteredLinks.map((link, index) => (
-              <NavLink
-                key={index}
-                to={link.path}
-                className={({ isActive }) =>
-                  isActive ? "active-link" : ""
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
+            {openSections[section.title] &&
+              filteredLinks.map((link, index) => (
+                <NavLink
+                  key={index}
+                  to={link.path}
+                  className={({ isActive }) =>
+                    isActive ? "active-link" : ""
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ))}
           </div>
         );
       })}
