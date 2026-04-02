@@ -58,6 +58,12 @@ export default function Sidebar() {
       ],
     },
     {
+  title: "Tree",
+  links: [
+    { name: "BST (Insertion)", path: "/tree/bst" }
+  ]
+},
+    {
       title: "Practice",
       links: [{ name: "Quiz", path: "/quiz" }],
     },

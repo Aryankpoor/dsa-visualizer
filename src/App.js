@@ -19,7 +19,7 @@ import MergeSort from "./pages/sorting/MergeSort";
 import QuickSort from "./pages/sorting/QuickSort";
 
 import Home from "./pages/Home";
-
+import BST from "./pages/tree/BST";
 import Quiz from "./pages/quiz/Quiz";
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
         <Route path="/sorting/quick" element={<QuickSort />} />
 
           <Route path="/graph/BFS" element={<BFS />} />
+          <Route path="/tree/bst" element={<BST />} />
           <Route path="/graph/DFS" element={<DFS />} />
 
           <Route path="/quiz" element={<Quiz />} />

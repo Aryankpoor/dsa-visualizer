@@ -241,3 +241,55 @@ strong {
     font-size: 20px;
   }
 }
+
+.tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.tree-level {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  gap: 30px;
+}
+
+.tree-node {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 6px;
+  min-width: 30px;
+  text-align: center;
+  font-weight: 500;
+  position: relative;
+}
+
+.tree-level:not(:first-child) .tree-node::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 2px;
+  height: 15px;
+  background: var(--border);
+}
+
+.tree-box {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  font-weight: 500;
+}
+
+.tree-separator {
+  width: 2px;
+  height: 25px;
+  background: var(--accent-purple);
+}
+
