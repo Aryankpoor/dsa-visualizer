@@ -1,9 +1,9 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import { useState } from "react";
 
 export default function Sidebar() {
   const [search, setSearch] = useState("");
-  const location = useLocation();
+  
 
   const [openSections, setOpenSections] = useState({
     General: false,
