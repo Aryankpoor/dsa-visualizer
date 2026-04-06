@@ -14,6 +14,30 @@ export default function BST() {
     setIndex(0);
   };
 
+  const nextStep = () => {
+    setIndex((prev) => Math.min(prev + 1, steps.length - 1));
+  };
+
+  const renderTree = (tree) => {
+    return tree.map((row, i) => (
+      <div
+        key={i}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "12px",
+          marginBottom: "8px",
+        }}
+      >
+        {row.map((val, idx) => (
+          <span key={idx} className="tree-box">
+            {val}
+          </span>
+        ))}
+      </div>
+    ));
+  };
+
   return (
     <div>
       <h1>Binary Search Tree (Insertion)</h1>
@@ -43,82 +67,74 @@ export default function BST() {
         <Card>
           <div className="pseudocode">
             insert(root, value):
-              if root is null:
-                return new node
-
-              if value &lt; root:
-                insert left
-              else:
-                insert right
+            <br />
+            &nbsp;&nbsp;if root is null:
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;return new node
+            <br />
+            <br />
+            &nbsp;&nbsp;if value &lt; root:
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;insert left
+            <br />
+            &nbsp;&nbsp;else:
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;insert right
           </div>
         </Card>
       </Section>
 
       <Section title="Start Example">
         <Button text="Start" onClick={start} />
-        <Button text="Next Step" onClick={() => setIndex(index + 1)} />
+        <Button text="Next Step" onClick={nextStep} />
 
-        {steps.length > 0 && index < steps.length && (
+        {steps.length > 0 && (
           <Card>
             <h3>Step {index + 1}</h3>
 
             <p>
               <strong>Inserted:</strong> {steps[index].inserted}
             </p>
+
             <p>
-  <strong>Explanation:</strong> {steps[index].explanation}
-</p>
+              <strong>Explanation:</strong> {steps[index].explanation}
+            </p>
+
             <hr />
 
             <h4>Tree:</h4>
 
-            {steps[index].tree.map((level, i) => (
-  <div key={i} style={{ marginBottom: "14px" }}>
-    <strong>Row {i + 1}:</strong>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "20px",
+              }}
+            >
+              <span className="tree-box">{steps[index].root}</span>
+            </div>
 
-    {level.root !== null && (
-  <div
-    style={{
-      marginTop: "6px",
-      display: "flex",
-      justifyContent: "center",
-    }}
-  >
-    <span className="tree-box">{level.root}</span>
-  </div>
-)}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "flex-start",
+              }}
+            >
+              <div>
+                <h4 style={{ textAlign: "center" }}>Left Subtree</h4>
+                {steps[index].leftSubtree.length > 0
+                  ? renderTree(steps[index].leftSubtree)
+                  : <p style={{ textAlign: "center" }}>Empty</p>}
+              </div>
 
-    {(level.left.length > 0 || level.right.length > 0) && (
-      <div
-        style={{
-          marginTop: "8px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "20px",
-        }}
-      >
-        <div>
-          {level.left.map((val, idx) => (
-            <span key={idx} className="tree-box">
-              {val}
-            </span>
-          ))}
-        </div>
-
-        <div className="tree-separator"></div>
-
-        <div>
-          {level.right.map((val, idx) => (
-            <span key={idx} className="tree-box">
-              {val}
-            </span>
-          ))}
-        </div>
-      </div>
-    )}
-  </div>
-))}
+              <div>
+                <h4 style={{ textAlign: "center" }}>Right Subtree</h4>
+                {steps[index].rightSubtree.length > 0
+                  ? renderTree(steps[index].rightSubtree)
+                  : <p style={{ textAlign: "center" }}>Empty</p>}
+              </div>
+            </div>
           </Card>
         )}
       </Section>

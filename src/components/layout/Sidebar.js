@@ -59,7 +59,7 @@ export default function Sidebar() {
     },
     {
   title: "Tree",
-  links: [
+  links: [  
     { name: "BST (Insertion)", path: "/tree/bst" }
   ]
 },

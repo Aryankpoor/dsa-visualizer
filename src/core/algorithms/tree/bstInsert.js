@@ -1,15 +1,18 @@
 export function bstInsertSteps(values) {
   let steps = [];
 
-  function insert(root, value) {
+  function insert(root, value, logs) {
     if (!root) {
+      logs.push(`${value} inserted here`);
       return { value, left: null, right: null };
     }
 
     if (value < root.value) {
-      root.left = insert(root.left, value);
+      logs.push(`${value} < ${root.value} → go left`);
+      root.left = insert(root.left, value, logs);
     } else {
-      root.right = insert(root.right, value);
+      logs.push(`${value} > ${root.value} → go right`);
+      root.right = insert(root.right, value, logs);
     }
 
     return root;
@@ -19,27 +22,21 @@ export function bstInsertSteps(values) {
     if (!root) return [];
 
     let result = [];
-    let queue = [{ node: root, side: "root" }];
+    let queue = [root];
 
     while (queue.length) {
       let size = queue.length;
-
-      let left = [];
-      let right = [];
-      let rootVal = null;
+      let row = [];
 
       for (let i = 0; i < size; i++) {
-        let { node, side } = queue.shift();
+        let node = queue.shift();
+        row.push(node.value);
 
-        if (side === "root") rootVal = node.value;
-        else if (side === "left") left.push(node.value);
-        else right.push(node.value);
-
-        if (node.left) queue.push({ node: node.left, side: "left" });
-        if (node.right) queue.push({ node: node.right, side: "right" });
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
       }
 
-      result.push({ root: rootVal, left, right });
+      result.push(row);
     }
 
     return result;
@@ -48,31 +45,17 @@ export function bstInsertSteps(values) {
   let root = null;
 
   for (let val of values) {
-    if (!root) {
-      root = insert(root, val);
+    let logs = [];
 
-      steps.push({
-        inserted: val,
-        explanation: `${val} added as root`,
-        tree: buildLevels(root),
-      });
-    } else {
-      let explanation = "";
+    root = insert(root, val, logs);
 
-      if (val < root.value) {
-        explanation = `${val} added to left subtree as it is smaller than root (${root.value})`;
-      } else {
-        explanation = `${val} added to right subtree as it is greater than root (${root.value})`;
-      }
-
-      root = insert(root, val);
-
-      steps.push({
-        inserted: val,
-        explanation,
-        tree: buildLevels(root),
-      });
-    }
+    steps.push({
+      inserted: val,
+      explanation: logs.join(" → "),
+      root: root ? root.value : null,
+      leftSubtree: buildLevels(root?.left),
+      rightSubtree: buildLevels(root?.right),
+    });
   }
 
   return steps;
